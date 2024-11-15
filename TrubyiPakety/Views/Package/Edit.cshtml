@@ -1,0 +1,64 @@
+﻿@model TrubyiPakety.Models.Package
+
+@{
+    ViewData["Title"] = "Edit Package";
+}
+
+<h2>Edit Package</h2>
+
+<form asp-action="Edit" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label asp-for="Number" class="control-label"></label>
+        <input asp-for="Number" class="form-control" />
+        <span asp-validation-for="Number" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Date" class="control-label"></label>
+        <input asp-for="Date" class="form-control" type="date" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>
+
+<h3>Pipes in this Package</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Quality</th>
+            <th>Diameter</th>
+            <th>Length</th>
+            <th>Weight</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pipe in Model.Pipes)
+        {
+            <tr>
+                <td>@pipe.Number</td>
+                <td>@pipe.Quality</td>
+                <td>@pipe.Diameter</td>
+                <td>@pipe.Length</td>
+                <td>@pipe.Weight</td>
+                <td>
+                    <form asp-action="RemovePipeFromPackage" method="post" style="display:inline;">
+                        <input type="hidden" name="pipeId" value="@pipe.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="AddPipesToPackage" asp-route-packageId="@Model.Id" class="btn btn-success">Add Pipes</a>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

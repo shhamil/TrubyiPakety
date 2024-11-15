@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35431.28
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrubyiPakety", "TrubyiPakety\TrubyiPakety.csproj", "{9F025430-E4C2-4617-B60C-44ED295F284D}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A43E94FA-0294-47A3-B2FF-0F43CE302C90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{292854B7-205F-4FD9-A031-C01C44228899}"
+	ProjectSection(SolutionItems) = preProject
+		Zadanie1.sql = Zadanie1.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F025430-E4C2-4617-B60C-44ED295F284D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F025430-E4C2-4617-B60C-44ED295F284D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F025430-E4C2-4617-B60C-44ED295F284D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F025430-E4C2-4617-B60C-44ED295F284D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A43E94FA-0294-47A3-B2FF-0F43CE302C90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A43E94FA-0294-47A3-B2FF-0F43CE302C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A43E94FA-0294-47A3-B2FF-0F43CE302C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A43E94FA-0294-47A3-B2FF-0F43CE302C90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF0801A0-02B4-4300-8615-4C4EB826A7DB}
+	EndGlobalSection
+EndGlobal

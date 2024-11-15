@@ -1,0 +1,48 @@
+﻿@model TrubyiPakety.ViewModel.PipeIndexViewModel
+
+@{
+    ViewData["Title"] = "Pipes List";
+}
+
+<h2>Pipes List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Quality</th>
+            <th>Steel Grade</th>
+            <th>Dimensions</th>
+            <th>Weight</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pipe in Model.Pipes)
+        {
+            <tr class="@(pipe.Quality == "Defective" ? "table-danger" : "")">
+                <td>@pipe.Number</td>
+                <td>@pipe.Quality</td>
+                <td>@pipe.SteelGrade</td>
+                <td>@pipe.Diameter</td>
+                <td>@pipe.Weight</td>
+                <td>
+                    @if (pipe.PackageId == null)
+                    {
+                        <a asp-action="Edit" asp-route-id="@pipe.Id" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@pipe.Id" class="btn btn-sm btn-danger">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Add New Pipe</a>
+
+<div class="d-flex justify-content-between mt-3">
+    <p class="mb-0"><strong>Ысего труб:</strong> @Model.TotalCount</p>
+    <p class="mb-0"><strong>Годных:</strong> @Model.GoodCount</p>
+    <p class="mb-0"><strong>Бракованных:</strong> @Model.DefectiveCount</p>
+    <p class="mb-0"><strong>Общий вес:</strong> @Model.TotalWeight</p>
+</div>

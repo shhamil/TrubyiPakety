@@ -1,0 +1,37 @@
+﻿@model TrubyiPakety.ViewModel.AddPipesToPackageViewModel
+
+<h2>Add Pipes to Package: @Model.Package.Number</h2>
+
+<form asp-action="AddPipesToPackage" method="post">
+    <input type="hidden" name="packageId" value="@Model.Package.Id" />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Number</th>
+                <th>Quality</th>
+                <th>Diameter</th>
+                <th>Length</th>
+                <th>Weight</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pipe in Model.AvailablePipes)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="selectedPipeIds" value="@pipe.Id" />
+                    </td>
+                    <td>@pipe.Number</td>
+                    <td>@pipe.Quality</td>
+                    <td>@pipe.Diameter</td>
+                    <td>@pipe.Length</td>
+                    <td>@pipe.Weight</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Add Selected Pipes</button>
+</form>

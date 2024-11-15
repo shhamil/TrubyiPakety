@@ -1,0 +1,34 @@
+services:
+  trubyipakety:
+    image: ${DOCKER_REGISTRY-}trubyipakety
+    build:
+      context: .
+      dockerfile: TrubyiPakety/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - mynetwork
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "trubyipaketyDb"
+      POSTGRES_USER: "shamil"
+      POSTGRES_PASSWORD: "shamil1998"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shamil"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+
+volumes:
+  pg_data:
+
+networks:
+  mynetwork:

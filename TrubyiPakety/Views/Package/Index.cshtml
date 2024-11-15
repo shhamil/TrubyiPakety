@@ -1,0 +1,34 @@
+﻿@model IEnumerable<TrubyiPakety.Models.Package>
+
+@{
+    ViewData["Title"] = "Packages List";
+}
+
+<h2>Packages List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Package Number</th>
+            <th>Date</th>
+            <th>Pipes</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var package in Model)
+        {
+            <tr>
+                <td>@package.Number</td>
+                <td>@package.Date.ToString("d")</td>
+                <td>@package.Pipes.Count()</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@package.Id" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@package.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Add New Package</a>
